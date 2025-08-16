@@ -175,6 +175,10 @@
   .profit-glow {
     animation: profitGlow 2s ease-in-out infinite alternate;
   }
+  
+  .shake {
+    animation: shake 0.6s ease-in-out;
+  }
 }
 
 @keyframes successBounce {
@@ -186,4 +190,10 @@
 @keyframes profitGlow {
   0% { box-shadow: 0 0 5px hsl(var(--success) / 0.3); }
   100% { box-shadow: 0 0 20px hsl(var(--success) / 0.6); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+  20%, 40%, 60%, 80% { transform: translateX(3px); }
 }

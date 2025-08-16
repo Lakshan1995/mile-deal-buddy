@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Truck, DollarSign, Calculator, Settings, TrendingUp } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import driverFace from "@/assets/driver-face.png";
 
 const TruckCalculator = () => {
   const [miles, setMiles] = useState<string>("");
@@ -127,9 +128,18 @@ const TruckCalculator = () => {
               
               {isProfit && (
                 <div className="mt-2 p-3 bg-success/10 rounded-lg">
-                  <div className="flex items-center gap-2 text-success font-medium">
-                    <TrendingUp className="h-4 w-4" />
-                    {getProfitMessage()}
+                  <div className="flex items-center gap-3 text-success font-medium">
+                    <div className={`relative ${showProfitAnimation ? 'shake' : ''}`}>
+                      <img 
+                        src={driverFace} 
+                        alt="Excited driver" 
+                        className="w-8 h-8 rounded-full border-2 border-success/20"
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <TrendingUp className="h-4 w-4" />
+                      {getProfitMessage()}
+                    </div>
                   </div>
                   <p className="text-sm text-success mt-1">
                     Profit: ${profitMargin.toFixed(2)} per mile
